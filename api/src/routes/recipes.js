@@ -4,23 +4,25 @@ require('dotenv').config();
 const { Recipe, Diet, Op } = require('../db');
 const { getRecipeById, getAllInfo } = require('../controllers/recipes.js')
 
+
+
 router.get('/', async (req, res, next) => {
 
     const { name } = req.query;
-    const infoByName = await getAllInfo(next);
+    const allInfo = await getAllInfo();
 
     try {
         if (name) {
 
-            const nameFilter = infoByName.filter((e) => e.name.toLowerCase().includes(name.toLowerCase()));
+            const nameFilter = allInfo.filter((e) => e.name.toLowerCase().includes(name.toLowerCase()));
 
             if (nameFilter.length === 0) {
-                return res.status(404).send({ message: 'Recipes not found' });
+                return res.status(404).send({ message: `Recipes with name: ${name} doesnt exists` });
             } 
              return res.send(nameFilter); 
 
         } else {
-            return res.send(infoByName);
+            return res.send(allInfo);
         }
     } catch (error) {
         next(error);
@@ -35,7 +37,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.post("/", async(req, res)=>{
+router.post("/", async(req, res, next)=>{
     try {
         const { name, summary, healthScore, image, steps, diets } = req.body;
         const newRecipe = await Recipe.Create({
@@ -54,7 +56,7 @@ router.post("/", async(req, res)=>{
           newRecipe.addDiet(getAllDiet)
           return res.status(201).send(newRecipe);
     } catch (error) {
-        
+        next(error);
     }
 });
 

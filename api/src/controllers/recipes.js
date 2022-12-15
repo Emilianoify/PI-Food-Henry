@@ -1,14 +1,14 @@
 const axios = require('axios');
 const { Recipe, Diet, conn } = require('../db');
-const { API_KEY } = process.env;
+const { API_KEY, API_KEY_2 } = process.env;
 
-const getApiInfo = async (name) => {
+const getApiInfo = async (next) => {
 
   try {
-    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
+    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&addRecipeInformation=true&number=100`);
     const { results } = axiosRes.data;
 
-    let response = results?.map((e) => {
+    let response = await results?.map((e) => {
       return {
         id: e.id,
         name: e.title,
@@ -22,42 +22,42 @@ const getApiInfo = async (name) => {
     return response;
 
   } catch (error) {
-    return ('Cannot get api info');
+      return ("Cannot get API Info")
   }
 }
 
-const getDbInfo = async (name) => {
+const getDbInfo = async (next) => {
   try {
 
-    let rcp = await Recipe.findAll({
+    const recipeFind = await Recipe.findAll({
       include: {
         model: Diet,
         attributes: ['name']
       }
     })
 
-    let resp = rcp?.map((recipe) => {
+    const recipeFilter = recipeFind.map((recipe) => {
       return {
         id: recipe.id,
         name: recipe.name,
         summary: recipe.score,
         healthScore: recipe.healthScore,
         image: recipe.image,
-        steps: recipe.steps,
-        diets: recipe.diets?.map(diet => diet.name)
+        diets: recipe.diets.map((diet) => diet.name),
+        steps: recipe.steps
       }
     })
-    return resp
+    return recipeFilter
   } catch (error) {
-    return ('Cannot get api info')
+    next(error);
   }
 }
 
-const getAllInfo = async (name) => {
+const getAllInfo = async (next) => {
 
-  let apiInfo = await getApiInfo(name);
-  let dbInfo = await getDbInfo(name);
-  let totalInfo = apiInfo.concat(dbInfo);
+  const apiInfo = await getApiInfo(next);
+  const dbInfo = await getDbInfo(next);
+  const totalInfo = apiInfo.concat(dbInfo);
   return totalInfo
 
 }
@@ -89,7 +89,7 @@ const getRecipeById = async (id) => {
   } else {
 
     try {
-      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
+      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_2}`)
       //Mi error fue no traer correctamente los datos, la API fue bien consumida, el problema fue que no use el .data, al invocar.
       return {
         id: recipeByApiID.data.id,
