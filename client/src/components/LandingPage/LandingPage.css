@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&family=Yeseva+One&display=swap');
+
+.box{
+    background-image:url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.container{
+    width: 50vw;
+    height: 25vh;
+    display: grid;
+    background-color: #36311898;
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #b7b7a4;
+    text-align: center;
+    color: #ebebeb;
+    justify-items: center;
+    align-items: center;
+}
+
+.welcomeMessage{
+    font-size: 36px;
+    font-weight: normal;
+    font-family: 'Yeseva One', sans-serif;
+}
+
+.loveMessage{
+    font-size: 28px;
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.homeRedirect{
+    width: fit-content;
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 18px;
+    color: #ebebeb;
+    font-weight: bold;
+    border: 2px solid #ebebeb;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #36311894;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.homeRedirect:hover{
+    background-color: #363118e0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+  }
