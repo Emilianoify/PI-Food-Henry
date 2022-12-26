@@ -3,13 +3,13 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 //const recipeRouter = require('./recipe.js');
 const recipesRouter = require('./recipes.js');
-const dietRpouter = require('./diet.js');
+const dietRouter = require('./diets.js');
 
 const router = Router();
 
 //router.use('/recipe', recipeRouter);
 router.use('/recipes', recipesRouter);
-router.use('/diets', dietRpouter);
+router.use('/diets', dietRouter);
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 

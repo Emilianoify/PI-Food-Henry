@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Noto+Sans:wght@600&display=swap');
+
+.fullContainer {
+    background-image: url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\recipeCreatebg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.createContainer {
+    display: grid;
+    background-color: white;
+    width: 60vw;
+    height: 80vh;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.imgContainer,
+.formContainer {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgContainer {
+    background-image: url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\imgContainerbg.jpg");
+    background-position: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formContainer {
+    display: flex;
+    background-color: antiquewhite;
+}
+
+.createForm {
+    color: darkgray;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+input {
+    border-color: transparent;
+    margin: 5px 0;
+    width: 15rem;
+    height: 1.25rem;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+input:focus{
+    border-color: bisque;
+}
+
+#foodSummary, #foodSteps{
+    height: 3rem;
+
+}
+
+button{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 12px;
+    color: white;
+    border-radius: 5px;
+    border: 2px solid tan;
+    background-color: tan;
+}
+
+button:hover{
+    background-color: rgb(212, 172, 119);
+}

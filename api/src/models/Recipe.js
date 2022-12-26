@@ -19,9 +19,6 @@ module.exports = sequelize => {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    score: {
-      type: DataTypes.FLOAT
-    },
     healthScore: {
       type: DataTypes.FLOAT
     },

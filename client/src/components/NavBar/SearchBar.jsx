@@ -13,7 +13,7 @@ export default function SearchBar({ onSearch }) {
                 placeholder="Search Recipe..."
                 value={recipe}
                 onChange={e => setRecipe(e.target.value)} />
-            <button type="submit" className="submitInput"><img src={iconSearch} className="logoSearch"/></button>
+            <button type="submit" className="submitInput"><img src={iconSearch} className="logoSearch" alt="SearchLogo"/></button>
         </form>
     )
 }

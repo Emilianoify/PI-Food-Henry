@@ -1,11 +1,11 @@
 const axios = require('axios');
 const { Recipe, Diet, conn } = require('../db');
-const { API_KEY, API_KEY_2 } = process.env;
+const { API_KEY } = process.env;
 
 const getApiInfo = async (next) => {
 
   try {
-    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&addRecipeInformation=true&number=100`);
+    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
     const { results } = axiosRes.data;
 
     let response = await results?.map((e) => {
@@ -89,7 +89,7 @@ const getRecipeById = async (id) => {
   } else {
 
     try {
-      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_2}`)
+      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
       //Mi error fue no traer correctamente los datos, la API fue bien consumida, el problema fue que no use el .data, al invocar.
       return {
         id: recipeByApiID.data.id,
