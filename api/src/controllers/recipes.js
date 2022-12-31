@@ -1,11 +1,11 @@
 const axios = require('axios');
 const { Recipe, Diet, conn } = require('../db');
-const { API_KEY } = process.env;
+const { API_KEY, API_KEY_2 } = process.env;
 
 const getApiInfo = async (next) => {
 
   try {
-    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`);
+    const axiosRes = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_2}&addRecipeInformation=true&number=100`);
     const { results } = axiosRes.data;
 
     let response = await results?.map((e) => {
@@ -16,7 +16,12 @@ const getApiInfo = async (next) => {
         image: e.image,
         healthScore: e.healthScore,
         diets: e.diets,
-        steps: (e.analyzedInstructions[0] && e.analyzedInstructions[0].steps ? e.analyzedInstructions[0].steps.map(item => item.step).join(" \n") : '')
+        steps: e.analyzedInstructions[0]?.steps.map((el) => {
+          return {
+            number: el.number,
+            step: el.step
+          }
+        }),
       }
     })
     return response;
@@ -89,7 +94,7 @@ const getRecipeById = async (id) => {
   } else {
 
     try {
-      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`)
+      const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_2}`)
       //Mi error fue no traer correctamente los datos, la API fue bien consumida, el problema fue que no use el .data, al invocar.
       return {
         id: recipeByApiID.data.id,
@@ -98,7 +103,12 @@ const getRecipeById = async (id) => {
         image: recipeByApiID.data.image,
         healthScore: recipeByApiID.data.healthScore,
         diets: recipeByApiID.data.diets,
-        steps: (recipeByApiID.data.analyzedInstructions[0] && recipeByApiID.data.analyzedInstructions[0].steps ? recipeByApiID.data.analyzedInstructions[0].steps.map(item => item.step).join(" \n") : '')
+        steps: recipeByApiID.data.analyzedInstructions[0]?.steps.map((e) => {
+          return {
+            number: e.number,
+            step: e.step
+          }
+        }),
       }
     } catch (error) {
       return {

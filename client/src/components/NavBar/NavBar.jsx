@@ -10,8 +10,7 @@ export default function NavBar({ onSearch }) {
             <NavLink exact to="/home">
                <img className="logoLink" src={Logo} alt="Logo" />
             </NavLink>
-            <SearchBar
-                onSearch={onSearch} />
+            <SearchBar/>
             <NavLink exact to="/create">
                 <span>
                     Add Recipe

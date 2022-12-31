@@ -1,18 +1,17 @@
 import React from "react";
 import NavBar from "../NavBar/NavBar";
-import Card from "../Card/Card"
 import './Home.css'
+import Recipes from "../Cards/Recipes";
 
 export default function Home() {
     return (
         <div className="homeContainer">
-           <NavBar />
-           <div className="cardContainer">
-           <Card/>
-           </div>
-           
-           </div>
-           
-
+            <header>
+            <NavBar />
+            </header>
+            <main className="recipes-container"> 
+                <Recipes />
+            </main>
+        </div>
     );
 }

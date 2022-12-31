@@ -1,0 +1,41 @@
+.paginate-container {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30px;
+    background-color: #ff7961;
+    bottom: 0px
+  }
+ 
+  .btnPrev {
+    border: none;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    align-items: center;
+    background-color: #9b0000;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .btnActive {
+    font-size: 16px;
+    width: 30px;
+    background-color: #c4001d;   
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    
+  }
+
+  .btnNext {
+    height: 25px;
+    border: none;
+    width: 25px;
+    background-color: #9b0000;
+    color: #fff;
+    cursor: pointer;
+  }

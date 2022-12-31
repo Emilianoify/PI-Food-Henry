@@ -48,8 +48,8 @@ export default function CreateRecipe() {
                             <option value="mercedes">Mercedes</option>
                             <option value="audi">Audi</option>
                         </select>
-                        <button type="submit">Create Recipe</button>
-                        <button type="button" onClick={()=>{history.goBack()}}>Back</button>
+                        <button type="submit" className="createRecipe">Create Recipe</button>
+                        <button type="button" className="goBackHome" onClick={()=>{history.goBack()}}>Back</button>
                     </form>
                 </section>
             </div>

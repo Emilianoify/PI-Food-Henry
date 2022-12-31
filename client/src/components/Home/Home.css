@@ -1,9 +1,15 @@
 .homeContainer{
-    background-color: #fbfcf9;
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
     font-family: 'Noto Sans', sans-serif;
+    background-color: #ffe0b2;
 }
+
+.recipes-container{
+    display: flex;
+    flex-direction: column;
+}
+

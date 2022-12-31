@@ -1,0 +1,15 @@
+.toolbar{
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+}
+
+.filterSubmit{
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 30px;
+    background-color: transparent;
+    color: white;
+    
+}

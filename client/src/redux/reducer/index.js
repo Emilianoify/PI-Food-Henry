@@ -1,11 +1,11 @@
-import { DETAIL_PAGE, FILTER_DIETS, ORDER_BY_HEALTHSCORE, ORDER_RECIPES, GET_LIST_DIETS, GET_RECIPE_DETAIL, GET_RECIPE_NAME, GET_RECIPES } from '../actions'
+import { DETAIL_PAGE, FILTER_DIETS, ORDER_BY_HEALTHSCORE, ORDER_RECIPES, GET_LIST_DIETS, GET_RECIPE_DETAIL, GET_RECIPE_NAME, GET_RECIPES, DELETE_RECIPE } from '../actions'
 
 //Importamos la acciones.
 //Creamos el estado inicial
 const initialState = {
     recipes: [],
     startedRecipes: [],
-    diets: [],
+    dietList: [],
     recipeDetail: {}
 };
 //Creamos el reducer
@@ -64,7 +64,7 @@ function rootReducer(state = initialState, { type, payload }) {
         case GET_LIST_DIETS:
             return {
                 ...state,
-                diets: payload
+                dietList: payload
             }
         case FILTER_DIETS:
             const allRecipesFilter = state.startedRecipes;
@@ -79,6 +79,11 @@ function rootReducer(state = initialState, { type, payload }) {
             return {
                 ...state,
                 recipeDetail: payload
+            }
+            case DELETE_RECIPE: 
+            return {
+                ...state,
+                recipes: state.recipes.filter((rcp)=> rcp.id !== payload)
             }
         default:
             return state;

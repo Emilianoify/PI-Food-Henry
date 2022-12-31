@@ -14,12 +14,11 @@ export const DETAIL_PAGE = "DETAIL_PAGE" //Listo
 
 //Creamos las funciones para cada type y las exportamos para posteriormente usarlas en react.
 export function getRecipes() {
-    return async function (dispatch) {
-        await axios
+    return function (dispatch) {
+        return axios
             .get(`http://localhost:3001/recipes`)
             .then((response) => {
-                dispatch({ type: GET_RECIPES, payload: response.data })
-                alert(response.data)
+                return dispatch({ type: GET_RECIPES, payload: response.data })
             })
             .catch((error) => {
                 alert(error)
@@ -32,7 +31,6 @@ export function getRecipeByName(name) {
         try {
             const axiosResponse = await axios
                 .get(`http://localhost:3001/recipes?name=${name}`)
-                
             dispatch({ type: GET_RECIPE_NAME, payload: axiosResponse.data })
         } catch (error) {
             if (error.response) {
@@ -46,7 +44,7 @@ export function getRecipeDetail(id) {
     return async function (dispatch) {
         try {
             const response = await axios
-                .get(`http://localhost:3001/recipes/${id}`)
+            .get(`http://localhost:3001/recipes/${id}`)
             dispatch({ type: GET_RECIPE_DETAIL, payload: response.data })
         } catch (error) {
             alert(error)
@@ -79,15 +77,14 @@ export function createRecipe(data) {
 }
 
 export function getDietsList() {
-    return function (dispatch) {
-        return axios
-            .get(`http://localhost:3001/diets`)
-            .then((response) => {
-                dispatch({ type: GET_LIST_DIETS, payload: response })
-            })
-            .catch((error) => {
-                alert(error)
-            })
+    return async function (dispatch) {
+        try {
+            const response = await axios.get(`http://localhost:3001/diets`)
+            dispatch({ type: GET_LIST_DIETS, payload: response.data })
+        } catch (error) {
+            alert(error)
+        }
+
     }
 }
 
@@ -100,7 +97,7 @@ export function orderByRecipe(data) {
 
 export function orderByHealth(data) {
     return {
-        type: ORDER_RECIPES,
+        type: ORDER_BY_HEALTHSCORE,
         payload: data
     }
 }
