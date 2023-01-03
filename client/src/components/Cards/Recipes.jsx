@@ -26,7 +26,7 @@ export default function Cards() {
 
     return recipes.length > 0 && recipes !== undefined ? (
         <>
-            <div>
+            <div className="toolbarBox">
                 <ToolBar
                     setOrder={setOrder}
                     setCurrentPage={setCurrentPage}
@@ -47,18 +47,19 @@ export default function Cards() {
 
                 })}
             </div>
-            <div className="paginate-container">
-                <Paginate
+            <div className="paginateRecipes">
+            <Paginate
                     currentPage={currentPage}
                     paginate={paginate}
                     totalPages={totalPages}
                     setCurrentPage={setCurrentPage}
                 />
             </div>
+                
         </>
     ) : (
         <>
-            <div>
+            <div className="toolbarBox">
                 <ToolBar
                     setOrder={setOrder}
                     setCurrentPage={setCurrentPage}

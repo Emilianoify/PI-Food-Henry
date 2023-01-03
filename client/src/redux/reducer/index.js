@@ -39,7 +39,7 @@ function rootReducer(state = initialState, { type, payload }) {
                         if (a.name < b.name) return -1;
                         if (b.name < a.name) return 1;
                         return 0
-                    } else {
+                    } else if (payload === 'Z-a') {
                         if (b.name < a.name) return -1;
                         if (a.name < b.name) return 1;
                         return 0
@@ -54,7 +54,7 @@ function rootReducer(state = initialState, { type, payload }) {
                         if (a.healthScore < b.healthScore) return -1;
                         if (b.healthScore < a.healthScore) return 1;
                         return 0
-                    } else {
+                    } else if(payload === 'H-L') {
                         if (b.healthScore < a.healthScore) return -1;
                         if (a.healthScore < b.healthScore) return 1;
                         return 0

@@ -101,3 +101,8 @@ input:focus{
 input[type=checkbox]{
     transform: scale(1.25);
 }
+
+.error-message{
+    font-size: 14px;
+    color: #9a0007;
+}

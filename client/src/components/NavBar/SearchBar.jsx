@@ -15,14 +15,19 @@ export default function SearchBar({setCurrentPage}) {
 
     const handleSubmit = (e)=>{
         e.preventDefault();
-        dispatch(getRecipeByName(search));
-        setSearch("");
-        setCurrentPage(1)
+        if(search.length < 3){
+            alert("Please write a valid ingredient o food type")
+        }else{
+            dispatch(getRecipeByName(search));
+            setSearch("");
+            setCurrentPage(1)
+        } 
     }
 
     return (
-        <form className="searchBar" onSubmit={(e)=>{handleSubmit(e)}}>
+        <form className="searchBar" autoComplete="off" onSubmit={(e)=>{handleSubmit(e)}}>
             <input type="text"
+                name="search"
                 className="searchInput"
                 placeholder="Search Recipe..."
                 value={search}

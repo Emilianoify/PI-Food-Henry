@@ -34,22 +34,28 @@ export default function ToolBar({ setOrder, setCurrentPage }) {
 
     return (
         <div className="toolbar">
-            <select onChange={(e) => handleChange(e)}>
-                <option value="orderA" disabled>Order By:</option>
-                <option value="A-z">A-z</option>
-                <option value="Z-a">Z-a</option>
-                <option value="L-H">Lower</option>
-                <option value="H-L">Higher</option>
-            </select>
-            <select onChange={(e) => handleChangeDiets(e)}>
-                <option value="allDiets">All Diets</option>
-                {diestByName?.map((el) => {
-                    return(
-                        <option value={el} key={el}>{el}</option>
-                    )
-                    
-                })}
-            </select>
+            <div className="orderContainer">
+                <span>Order By:</span>
+                <select onChange={(e) => handleChange(e)} defaultValue="Order By:" className="selectMain">
+                    <option value="default" disabled>Order By:</option>
+                    <option value="A-z">A-z</option>
+                    <option value="Z-a">Z-a</option>
+                    <option value="L-H">Lower</option>
+                    <option value="H-L">Higher</option>
+                </select>
+            </div>
+            <div className="filterContainer">
+                <span>Filter Diets:</span>
+                <select onChange={(e) => handleChangeDiets(e)} className="selectMain">
+                    <option value="allDiets">All Diets</option>
+                    {diestByName?.map((el) => {
+                        return (
+                            <option value={el} key={el}>{el}</option>
+                        )
+
+                    })}
+                </select>
+            </div>
         </div>
     )
 }

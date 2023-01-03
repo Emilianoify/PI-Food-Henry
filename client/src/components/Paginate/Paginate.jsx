@@ -25,7 +25,7 @@ const Paginate = ({currentPage, paginate, totalPages, setCurrentPage}) => {
       </button>
       {pageNumbers.map((e)=>{
         return (
-          <button className="btnActive" key={e} onClick={()=>paginate(e)} >
+          <button className={e === currentPage ? "btnActive" : "btnPaginate"} key={e} onClick={()=>paginate(e)} >
             {e}
           </button>
         )

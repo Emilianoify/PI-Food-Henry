@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   grid-gap: 10px;
-  margin-top: 5px;
+
 }
 
 .loading {
@@ -16,6 +16,19 @@
   width: 100vw;
 }
 
-.paginate-container{
+
+.toolbarBox{
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginateRecipes{
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 10px;
 }

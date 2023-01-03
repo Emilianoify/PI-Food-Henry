@@ -4,7 +4,6 @@
     position: relative;
     background-color: #f44336;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     font-family: 'Roboto', 'sans serif';
@@ -14,8 +13,7 @@
 
 .navbar a {
     color: white;
-    height: 100%;
-    padding: 16px 10px;
+    padding: 12px 10px;
     border-bottom: 4px solid transparent;
     
 }
@@ -28,5 +26,5 @@
     position: absolute;
     display: inline-block;
     overflow: hidden;
-    top: 4px;
+    top: 0px;
 }

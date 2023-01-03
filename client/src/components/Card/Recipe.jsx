@@ -20,7 +20,7 @@ export default function Recipe({ id, name, diets, image, healthScore }) {
                     <span className={c.detailInfo}>HealthScore: {healthScore}</span>
                 </div>
                 <div className={c.linkContainer}>
-                    <NavLink to={`recipe/${id}`}>View More</NavLink>
+                    <NavLink to={`recipe/${id}`}>View Recipe</NavLink>
                 </div>
                 
         </div>

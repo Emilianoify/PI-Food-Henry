@@ -4,7 +4,7 @@ import Logo from '../../img/iconHome.png';
 import './Navbar.css'
 import SearchBar from "./SearchBar";
 
-export default function NavBar({ onSearch }) {
+export default function NavBar() {
     return (
         <nav className="navbar">
             <NavLink exact to="/home">
