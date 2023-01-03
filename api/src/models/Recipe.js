@@ -23,11 +23,11 @@ module.exports = sequelize => {
       type: DataTypes.FLOAT
     },
     steps:{
-      type: DataTypes.TEXT
+      type: DataTypes.ARRAY(DataTypes.JSON)
     },
     image:{
       type: DataTypes.STRING,
-      defaultValue: "https://imgur.com/a/YXzJtzi"
+      defaultValue: "https://static.bonviveur.es/tags/recetas-cocina-internacional.jpg"
     }
   },
   {timestamps: false});

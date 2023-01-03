@@ -10,8 +10,6 @@ export default function ToolBar({ setOrder, setCurrentPage }) {
     const diestByName = dietList?.map((el) => el.name);
     useEffect(() => {
         dispatch(getDietsList());
-        console.log(dietList)
-        console.log(diestByName)
     }, [dispatch])
 
 
@@ -37,7 +35,7 @@ export default function ToolBar({ setOrder, setCurrentPage }) {
     return (
         <div className="toolbar">
             <select onChange={(e) => handleChange(e)}>
-                <option value="orderA" defaultValue disabled>Order By:</option>
+                <option value="orderA" disabled>Order By:</option>
                 <option value="A-z">A-z</option>
                 <option value="Z-a">Z-a</option>
                 <option value="L-H">Lower</option>

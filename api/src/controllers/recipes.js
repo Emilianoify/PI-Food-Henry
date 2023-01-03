@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { Recipe, Diet, conn } = require('../db');
-const { API_KEY, API_KEY_2 } = process.env;
+//const { API_KEY, API_KEY_2 } = process.env;
+const API_KEY_2 = process.env.API_KEY_2
 
 const getApiInfo = async (next) => {
 
@@ -96,6 +97,7 @@ const getRecipeById = async (id) => {
     try {
       const recipeByApiID = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY_2}`)
       //Mi error fue no traer correctamente los datos, la API fue bien consumida, el problema fue que no use el .data, al invocar.
+
       return {
         id: recipeByApiID.data.id,
         name: recipeByApiID.data.title,

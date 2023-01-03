@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async(req, res, next)=>{
     try {
         const { name, summary, healthScore, image, steps, diets } = req.body;
-        const newRecipe = await Recipe.Create({
+        const newRecipe = await Recipe.create({
             name,
             summary,
             healthScore,

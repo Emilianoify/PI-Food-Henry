@@ -2,12 +2,15 @@
 
 .detail-container{
     width: 100vw;
-    height: fit-content;
-    max-height: 100%;
+    height: 100vh;
+    max-height: fit-content;
     background-color: #43a047;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 .recipe-detail-container{
@@ -69,4 +72,27 @@
 
 .backToHome:hover{
     background-color: #4caf50;
+}
+
+.deleteRecipe{
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    position:static;
+    top: 2px;
+    right: 2px;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 20px;
+    background-color: #D31111 ;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    
+    cursor: pointer;
+}
+
+.deleteRecipe:hover{
+    background-color: #a4161a;
 }

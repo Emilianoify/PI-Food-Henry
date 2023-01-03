@@ -26,40 +26,48 @@ export default function Cards() {
 
     return recipes.length > 0 && recipes !== undefined ? (
         <>
-       <div>
-        <ToolBar
-        setOrder={setOrder}
-        setCurrentPage={setCurrentPage}
-        />
-       </div>
-        <div className="cardsContainer">
-            {currentPosts.map((r) => {
-                return (
-                    <Recipe
-                        id = {r.id}
-                        name={r.name}
-                        diets={r.diets}
-                        image={r.image}
-                        healthScore={r.healthScore}
-                        key={r.id}
-                    />
-                )
+            <div>
+                <ToolBar
+                    setOrder={setOrder}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
+            <div className="cardsContainer">
+                {currentPosts.map((r) => {
+                    return (
+                        <Recipe
+                            id={r.id}
+                            name={r.name}
+                            diets={r.diets}
+                            image={r.image}
+                            healthScore={r.healthScore}
+                            key={r.id}
+                        />
+                    )
 
-            })}
-        </div>
-        <div className="paginate-container">
-               <Paginate
-            currentPage={currentPage}
-            paginate={paginate}
-            totalPages={totalPages}
-            setCurrentPage={setCurrentPage}
-          />
-        </div>
+                })}
+            </div>
+            <div className="paginate-container">
+                <Paginate
+                    currentPage={currentPage}
+                    paginate={paginate}
+                    totalPages={totalPages}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
         </>
     ) : (
-        <div className="loading">
-            <img className="loadingGif" src={loadingImg} alt="Loading gif"></img>
-        </div>
+        <>
+            <div>
+                <ToolBar
+                    setOrder={setOrder}
+                    setCurrentPage={setCurrentPage}
+                />
+            </div>
+            <div className="loading">
+                <img className="loadingGif" src={loadingImg} alt="Loading gif"></img>
+            </div>
+        </>
     )
-   
+
 }

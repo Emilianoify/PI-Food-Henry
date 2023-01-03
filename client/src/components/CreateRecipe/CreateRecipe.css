@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Noto+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Noto+Sans:wght@500&display=swap');
 
 .fullContainer {
     background-image: url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\recipeCreatebg.jpg");
@@ -20,7 +20,7 @@
     display: grid;
     background-color: white;
     width: 60vw;
-    height: 80vh;
+    height: 90vh;
     grid-template-columns: repeat(2, 1fr);
 }
 
@@ -46,42 +46,58 @@
 
 .createForm {
     color: darkgray;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    align-items: center;
 }
 
-input {
+input, textarea {
     border-color: transparent;
-    margin: 5px 0;
+    margin: 3px 0;
     width: 15rem;
-    height: 1.25rem;
+    height: fit-content;
     border-radius: 10px;
     font-size: 16px;
+    word-break: break-all;
 }
 
 input:focus{
     border-color: bisque;
 }
 
-#foodSummary, #foodSteps{
-    height: 3rem;
-
-}
-
 .createRecipe, .goBackHome{
+    width: 100%;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     cursor: pointer;
     margin-top: 8px;
-    padding: 12px;
+    padding: 10px;
     color: white;
     border-radius: 5px;
-    border: 2px solid tan;
+    border: 1px solid tan;
     background-color: tan;
 }
 
 .createRecipe, .goBackHome:hover{
     background-color: rgb(212, 172, 119);
+}
+
+.dietListOpt{
+    margin: 1px;
+    width: fit-content;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.dietsContainerCreate{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 200px);
+}
+
+input[type=checkbox]{
+    transform: scale(1.25);
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipeDetail, pageDetail } from '../../redux/actions/index';
+import { getRecipeDetail, pageDetail, deteleRecipe } from '../../redux/actions/index';
 import './RecipeDetail.css'
 
 export default function RecipeDetail(props) {
@@ -17,17 +17,25 @@ export default function RecipeDetail(props) {
         }
     }, [dispatch])
 
+    function recipeDelete(){
+        dispatch(deteleRecipe(id))
+        alert('Recipe deleted')
+        history.push('/home')
+    }
+
     const recipeDetail = useSelector((state) => state.recipeDetail)
     const dietsList = recipeDetail.diets?.map((e) => e + " | ")
     return (
         <div className="detail-container">
-            {console.log(recipeDetail.steps)}
             <div className="recipe-detail-container">
                 <div className="firstDetailsContainer">
                     <section className="imgDetailContainer">
                         <img src={recipeDetail.image} alt="recipeImage" className="recipeImgBg" />
                     </section>
                     <section className="details-container">
+                        {id.length > 15 ? (
+                            <button className="deleteRecipe" onClick={()=>recipeDelete()}>X</button>
+                        ) : null}
                         <p className="recipeDetailName">{recipeDetail.name}</p>
                         <p className="recipeDetailHealthScore">HealthScore: {recipeDetail.healthScore}</p>
                         <p className="recipeDetailDiets">Diets Types: {dietsList}</p>
