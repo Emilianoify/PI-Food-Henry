@@ -32,30 +32,33 @@ export default function Cards() {
                     setCurrentPage={setCurrentPage}
                 />
             </div>
-            <div className="cardsContainer">
-                {currentPosts.map((r) => {
-                    return (
-                        <Recipe
-                            id={r.id}
-                            name={r.name}
-                            diets={r.diets}
-                            image={r.image}
-                            healthScore={r.healthScore}
-                            key={r.id}
-                        />
-                    )
+            <div className="home-container">
+                <div className={currentPage !== totalPages || currentPosts.length >= 3 ? "cardsContainer" : "LastCardContainer"}>
+                    {currentPosts.map((r) => {
+                        console.log(currentPosts)
+                        return (
+                            <Recipe
+                                id={r.id}
+                                name={r.name}
+                                diets={r.diets}
+                                image={r.image}
+                                healthScore={r.healthScore}
+                                key={r.id}
+                            />
+                        )
 
-                })}
+                    })}
+                </div>
             </div>
             <div className="paginateRecipes">
-            <Paginate
+                <Paginate
                     currentPage={currentPage}
                     paginate={paginate}
                     totalPages={totalPages}
                     setCurrentPage={setCurrentPage}
                 />
             </div>
-                
+
         </>
     ) : (
         <>

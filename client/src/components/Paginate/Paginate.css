@@ -7,6 +7,7 @@
     width: 400px;
     background-color: #ff7961bd;
     border-radius: 15px;
+
   }
  
   .btnPrev, .btnNext {
@@ -28,5 +29,6 @@
 
   .btnPaginate{
     color:white;
+    cursor: pointer;
     background-color: #ff5f52;
   }

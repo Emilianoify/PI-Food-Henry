@@ -17,7 +17,7 @@ export default function RecipeDetail(props) {
         }
     }, [dispatch])
 
-    function recipeDelete(){
+    function recipeDelete() {
         dispatch(deteleRecipe(id))
         alert('Recipe deleted')
         history.push('/home')
@@ -27,30 +27,28 @@ export default function RecipeDetail(props) {
     const dietsList = recipeDetail.diets?.map((e) => e + " | ")
     return (
         <div className="detail-container">
-            <div className="recipe-detail-container">
-                <div className="firstDetailsContainer">
-                    <section className="imgDetailContainer">
-                        <img src={recipeDetail.image} alt="recipeImage" className="recipeImgBg" />
-                    </section>
-                    <section className="details-container">
-                        {id.length > 15 ? (
-                            <button className="deleteRecipe" onClick={()=>recipeDelete()}>X</button>
-                        ) : null}
-                        <p className="recipeDetailName">{recipeDetail.name}</p>
-                        <p className="recipeDetailHealthScore">HealthScore: {recipeDetail.healthScore}</p>
-                        <p className="recipeDetailDiets">Diets Types: {dietsList}</p>
-                        <button className="backToHome" onClick={() => history.goBack()}>Back to Home</button>
-                    </section>
+            <div className="firstDetailsContainer">
+                <div className="imgDetailContainer">
+                    <img src={recipeDetail.image} alt="recipeImage" className="recipeImgBg" />
                 </div>
-                <div className="secondDetailsContainer">
-                    <p className="recipeDetailSummary" dangerouslySetInnerHTML={{ __html: recipeDetail.summary }}></p>
-                    {recipeDetail.steps?.map((el)=>{
-                        return (
-                            <p key={el.number}>{el.number + ")" + el.step}</p>
-                        )
-                    })}
+                <div className="details-container">
+                    {id.length > 15 ? (
+                        <button className="deleteRecipe" onClick={() => recipeDelete()}>X</button>
+                    ) : null}
+                    <p className="recipeDetailName">{recipeDetail.name}</p>
+                    <p className="recipeDetailHealthScore">HealthScore: {recipeDetail.healthScore}</p>
+                    <p className="recipeDetailDiets">Diets Types: {dietsList}</p>
+                    <button className="backToHome" onClick={() => history.goBack()}>Back to Home</button>
                 </div>
 
+            </div>
+            <div className="secondDetailsContainer">
+                <p className="recipeDetailSummary" dangerouslySetInnerHTML={{ __html: recipeDetail.summary }}></p>
+                {recipeDetail.steps?.map((el) => {
+                    return (
+                        <p key={el.number}>{el.number + ")" + el.step}</p>
+                    )
+                })}
             </div>
         </div>
 

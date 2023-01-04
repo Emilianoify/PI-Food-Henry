@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&family=Yeseva+One&display=swap');
 
 .box{
-    background-image:url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\bg.jpg");
+    background-image:url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\recipeCreatebg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;
@@ -17,9 +17,10 @@
 
 .container{
     width: 50vw;
-    height: 25vh;
-    display: grid;
-    background-color: #36311898;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #808e953f;
     border-radius: 15px;
     padding: 20px;
     border: 2px solid #b7b7a4;
@@ -36,7 +37,7 @@
 }
 
 .loveMessage{
-    font-size: 28px;
+    font-size: 30px;
     font-family: 'Rajdhani', sans-serif;
 }
 
@@ -51,13 +52,13 @@
     border-radius: 6px;
     font-weight: bold;
     font-size: 18px;
-    background-color: #36311894;
+    background-color: #90a4ae46;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .homeRedirect:hover{
-    background-color: #363118e0;
+    background-color: #36311873;
 }
 
 a {
