@@ -44,6 +44,11 @@ export default function ToolBar({ setOrder, setCurrentPage }) {
                     <option value="H-L">Higher</option>
                 </select>
             </div>
+            <div>
+                <button onClick={() => window.location.reload()} className="reset">
+                    Reload Recipes
+                </button>
+            </div>
             <div className="filterContainer">
                 <span>Filter Diets:</span>
                 <select onChange={(e) => handleChangeDiets(e)} className="selectMain">

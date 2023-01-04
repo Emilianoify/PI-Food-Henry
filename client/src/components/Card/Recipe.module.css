@@ -34,11 +34,14 @@
 
 .title {
     margin-bottom: 3px;
-    font-size: 20px;
+    font-size: 18px;
     border-bottom: 1px solid #ffab91;
     text-align: center;
     width: 300px;
-    height: fit-content;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .linkContainer {

@@ -7,7 +7,7 @@ import SearchBar from "./SearchBar";
 export default function NavBar() {
     return (
         <nav className="navbar">
-            <NavLink exact to="/home">
+            <NavLink exact to="/home/">
                <img className="logoLink" src={Logo} alt="Logo" />
             </NavLink>
             <SearchBar/>
