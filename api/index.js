@@ -19,24 +19,22 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn, Diet } = require('./src/db.js');
-
+//'vegetarian', 'lacto vegetarian','ovo vegetarian'
 let arr =
-['vegetarian',
-'lacto vegetarian',
-'ovo vegetarian',
-'vegan',
-'pescetarian',
+['vegan',
+'pescatarian',
 'paleolithic',
 'primal',
-'whole30',
+'whole 30',
 'gluten free',
 'lacto ovo vegetarian',
-'dairy free'
+'dairy free',
+'ketogenic'
 ]
 
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
   arr.forEach(e => Diet.findOrCreate({
     where: {name: e}
   }));

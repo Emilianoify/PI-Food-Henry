@@ -70,9 +70,6 @@ export default function CreateRecipe() {
     return (
         <div className="fullContainer">
             <div className="createContainer">
-                <section className="imgContainer">
-                </section>
-                <section className="formContainer">
                     <form className="createForm" autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
                         <label htmlFor="name">Name:</label>
                         <input
@@ -116,7 +113,7 @@ export default function CreateRecipe() {
                         <div className="dietsContainerCreate">
                             {list?.map((el) =>
                             (
-                                <span key={el}>
+                                <span key={el} >
                                     <input type="checkbox"
                                         name="diets"
                                         className="dietListOpt"
@@ -129,7 +126,6 @@ export default function CreateRecipe() {
                         <button type="submit" className="createRecipe" disabled={!validName || !validSummary}>Create Recipe</button>
                         <button type="button" className="goBackHome" onClick={() => { history.goBack() }}>Back</button>
                     </form>
-                </section>
             </div>
         </div>
     );

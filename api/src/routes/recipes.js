@@ -18,8 +18,8 @@ router.get('/', async (req, res, next) => {
 
             if (nameFilter.length === 0) {
                 return res.status(404).send({ message: `Recipes with name: ${name} doesnt exists` });
-            } 
-             return res.send(nameFilter); 
+            }
+            return res.send(nameFilter);
 
         } else {
             return res.send(allInfo);
@@ -37,7 +37,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-router.post("/", async(req, res, next)=>{
+router.post("/", async (req, res, next) => {
     try {
         const { name, summary, healthScore, image, steps, diets } = req.body;
         const newRecipe = await Recipe.create({
@@ -50,32 +50,54 @@ router.post("/", async(req, res, next)=>{
         });
         let getAllDiet = await Diet.findAll({
             where: {
-              name: diets
+                name: diets
             }
-          });
-          newRecipe.addDiet(getAllDiet)
-          return res.status(201).send(newRecipe);
+        });
+        newRecipe.addDiet(getAllDiet)
+        return res.status(201).send(newRecipe);
     } catch (error) {
         next(error);
     }
 });
 
-router.delete('/:id', async (req, res, next)=>{
+router.delete('/:id', async (req, res, next) => {
     const { id } = req.params;
     try {
         const rcpDel = await Recipe.findOne({
-            where: {id: id}
+            where: { id: id }
         })
-        if(rcpDel){
+        if (rcpDel) {
             await rcpDel.destroy();
             res.send('Recipe deleted')
         }
     } catch (error) {
         next(error);
     }
-   
+
 
 });
+
+router.put('/:id', async (req, res, next) => {
+    const { id } = req.params;
+    const { name, summary, healthScore, image, steps, diets } = req.body;
+    try {
+        await Recipe.update(
+            {
+                name: name,
+                summary: summary,
+                healthScore: healthScore,
+                image: image,
+                steps: steps,
+                diets: diets
+            }, {
+            where: { id: id }
+        }
+        );
+        res.send('Recipe updated')
+    } catch (error) {
+        next(error)
+    }
+})
 
 module.exports = router;
 

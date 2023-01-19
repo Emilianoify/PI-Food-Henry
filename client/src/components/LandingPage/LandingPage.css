@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&family=Yeseva+One&display=swap');
 
 .box{
-    background-image:url("D:\Programacion\Curso Henry\PI-Food-main\client\src\img\recipeCreatebg.jpg");
+    background-image:url("../../img/recipeCreatebg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100vw;

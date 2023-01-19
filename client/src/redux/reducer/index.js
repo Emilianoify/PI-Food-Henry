@@ -1,4 +1,4 @@
-import { DETAIL_PAGE, FILTER_DIETS, ORDER_BY_HEALTHSCORE, ORDER_RECIPES, GET_LIST_DIETS, GET_RECIPE_DETAIL, GET_RECIPE_NAME, GET_RECIPES, DELETE_RECIPE } from '../actions'
+import { DETAIL_PAGE, FILTER_DIETS, ORDER_BY_HEALTHSCORE, ORDER_RECIPES, GET_LIST_DIETS, GET_RECIPE_DETAIL, GET_RECIPE_NAME, GET_RECIPES, DELETE_RECIPE, UPDATE_RECIPE } from '../actions'
 
 //Importamos la acciones.
 //Creamos el estado inicial
@@ -85,6 +85,11 @@ function rootReducer(state = initialState, { type, payload }) {
                 ...state,
                 recipes: state.recipes.filter((rcp)=> rcp.id !== payload)
             }
+            case UPDATE_RECIPE:
+                return {
+                    ...state,
+                    recipes: payload
+                }
         default:
             return state;
     }

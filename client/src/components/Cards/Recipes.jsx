@@ -33,9 +33,8 @@ export default function Cards() {
                 />
             </div>
             <div className="home-container">
-                <div className={currentPage !== totalPages || currentPosts.length >= 3 ? "cardsContainer" : "LastCardContainer"}>
-                    {currentPosts.map((r) => {
-                        console.log(currentPosts)
+                <div className={currentPage !== totalPages || currentPosts?.length >= 3 ? "cardsContainer" : "LastCardContainer"}>
+                    {currentPosts?.map((r) => {
                         return (
                             <Recipe
                                 id={r.id}

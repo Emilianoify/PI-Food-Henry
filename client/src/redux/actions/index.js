@@ -11,6 +11,7 @@ export const ORDER_RECIPES = "ORDER_RECIPES" //Listo
 export const ORDER_BY_HEALTHSCORE = "ORDER_BY_HEALTHSCORE" //Listo
 export const FILTER_DIETS = "FILTER_DIETS" //Listo
 export const DETAIL_PAGE = "DETAIL_PAGE" //Listo
+export const UPDATE_RECIPE = "UPDATE_RECIPE"
 
 //Creamos las funciones para cada type y las exportamos para posteriormente usarlas en react.
 export function getRecipes() {
@@ -62,6 +63,18 @@ export function deteleRecipe(id) {
             alert(error)
         }
     }
+}
+
+export function updateRecipe(id){
+    return async function (dispatch) { 
+        try{
+            const response = await axios
+            .put(`http://localhost:3001/recipes/${id}`)
+            dispatch({type: UPDATE_RECIPE, payload: response.data})
+        } catch(error){
+            alert(error)
+        }
+     }
 }
 
 export function createRecipe(data) {

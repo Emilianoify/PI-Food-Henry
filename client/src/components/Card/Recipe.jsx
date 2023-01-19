@@ -6,12 +6,9 @@ export default function Recipe({ id, name, diets, image, healthScore }) {
 
     const dietsList = diets?.map((e) => e + " | ")
 
- 
-
     return (
         <div className={c.container}>
             <span className={c.title}>{name}</span>
-           
             <div >
                 <img className={c.imgContainer} src={image} alt={name} />
             </div>
@@ -21,8 +18,7 @@ export default function Recipe({ id, name, diets, image, healthScore }) {
                 </div>
                 <div className={c.linkContainer}>
                     <NavLink to={`recipe/${id}`}>View Recipe</NavLink>
-                </div>
-                
+                </div>    
         </div>
 
 
