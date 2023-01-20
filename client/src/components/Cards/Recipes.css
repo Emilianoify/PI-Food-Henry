@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   grid-gap: 10px;
-  background-color: rgba(255, 255, 255, 0.562);
+  background-color: #495057c2;
   border-radius: 10px;
   width: fit-content;
   height: fit-content;
@@ -24,7 +24,7 @@
   grid-gap: 10px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.562);
+  background-color: #495057c2;
   border-radius: 10px;
   width: fit-content;
   height: fit-content;

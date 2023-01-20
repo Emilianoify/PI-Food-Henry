@@ -1,5 +1,5 @@
 .container {
-    background-color: #ff8965a6;
+    background-color: #161a1dce;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -16,7 +16,7 @@
 }
 
 .detailInfo {
-    border-top: 1px solid #ffab91;
+    border-top: 1px solid #495057b6;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -35,7 +35,7 @@
 .title {
     margin-bottom: 3px;
     font-size: 18px;
-    border-bottom: 1px solid #ffab91;
+    border-bottom: 1px solid #495057b6;
     text-align: center;
     width: 300px;
     height: 65px;

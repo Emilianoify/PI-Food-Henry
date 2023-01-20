@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     width: 400px;
-    background-color: #ff7961bd;
+    background-color: #343a40ad;
     border-radius: 15px;
 
   }
@@ -14,7 +14,7 @@
     color:white;
     text-align: center;
     align-items: center;
-    background-color: #b61828e0;
+    background-color: #264653;
     cursor: pointer;
   }
 
@@ -30,5 +30,5 @@
   .btnPaginate{
     color:white;
     cursor: pointer;
-    background-color: #ff5f52;
+    background-color: #596475;
   }

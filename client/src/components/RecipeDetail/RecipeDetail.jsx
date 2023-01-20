@@ -46,7 +46,7 @@ export default function RecipeDetail(props) {
                 <p className="recipeDetailSummary" dangerouslySetInnerHTML={{ __html: recipeDetail.summary }}></p>
                 {recipeDetail.steps?.map((el) => {
                     return (
-                        <p key={el.number}>{el.number + ")" + el.step}</p>
+                        <p key={el.number}>{el.number + el.step}</p>
                     )
                 })}
             </div>

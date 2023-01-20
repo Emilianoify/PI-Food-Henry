@@ -22,6 +22,7 @@
     align-items: center;
     justify-content: center;
     background-color: #ced4da42;
+    border-radius: 10px;
     width: 50vw;
     height: 90vh;
 }

@@ -2,7 +2,8 @@
 
 .navbar {
     position: relative;
-    background-color: #f44336;
+   /* background-color: #f44336;*/
+   background-color: #343a40;
     display: flex;
     align-items: center;
     justify-content: space-around;

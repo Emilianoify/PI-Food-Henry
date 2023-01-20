@@ -2,7 +2,7 @@
     color: white;
     display: flex;
     justify-content: space-around;
-    background-color: #c628285d;
+    background-color: #343a40ad;
     width: 600px;
     border-radius: 10px;
     align-items: center;
@@ -24,8 +24,8 @@
 }
 
 .reset{
-    background-color: #c628288e;
-    border: 1px solid #c628288e;
+    background-color: #495057b6;
+    border: 1px solid #343a40;
     border-radius: 10px;
     color: white;
     font-size: 14px;
@@ -33,5 +33,5 @@
 }
 
 .reset:hover{
-    background-color: #c628285d;
+    background-color: #6c757d;
 }
