@@ -7,10 +7,11 @@ export default function SearchBar({ setCurrentPage }) {
 
     const dispatch = useDispatch();
     const [search, setSearch] = useState("")
+    const [isLoading, setLoaded] = useState(false)
 
     const handleChange = (e) => {
-        e.preventDefault();
-        setSearch(e.target.value);
+      e.preventDefault();
+      setSearch(e.target.value);
     }
 
     const handleSubmit = (e) => {
@@ -21,6 +22,7 @@ export default function SearchBar({ setCurrentPage }) {
             dispatch(getRecipeByName(search));
             setSearch("");
             setCurrentPage(1)
+            
         }
     }
 
@@ -36,6 +38,7 @@ export default function SearchBar({ setCurrentPage }) {
     }
 
     return (
+        <>
         <form className="searchBar" autoComplete="off" onSubmit={(e) => { handleSubmit(e) }}>
             <input type="text"
                 name="search"
@@ -49,5 +52,6 @@ export default function SearchBar({ setCurrentPage }) {
                 <img src={iconSearch} className="logoSearch" alt="SearchLogo" />
             </button>
         </form>
+        </>
     )
 }

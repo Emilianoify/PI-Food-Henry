@@ -3,7 +3,7 @@ import LandingPage from './components/LandingPage/LangingPage';
 import Home from './components/Home/Home';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 import RecipeDetail from './components/RecipeDetail/RecipeDetail';
-
+import './App.css'
 
 function App() {
   return (
