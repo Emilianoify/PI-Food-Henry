@@ -19,6 +19,7 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn, Diet } = require('./src/db.js');
+const PORT = process.env.PORT || 3001
 //'vegetarian', 'lacto vegetarian','ovo vegetarian'
 let arr =
 ['vegan',
@@ -38,7 +39,7 @@ conn.sync({ alter: true }).then(() => {
   arr.forEach(e => Diet.findOrCreate({
     where: {name: e}
   }));
-  server.listen(3001, () => {
+  server.listen(PORT, () => {
     console.log('%s listening at 3001'); // eslint-disable-line no-console
   });
 });
