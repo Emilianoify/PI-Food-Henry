@@ -18,7 +18,6 @@ export const UPDATE_RECIPE = "UPDATE_RECIPE"
 
 //Creamos las funciones para cada type y las exportamos para posteriormente usarlas en react.
 export function getRecipes() {
-    console.log(REACT_APP_BASE_URL)
     return function (dispatch) {
         return axios
             .get(`${REACT_APP_BASE_URL}/recipes`)

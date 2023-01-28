@@ -35,11 +35,11 @@ let arr =
 
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ alter: true }).then(() => {
   arr.forEach(e => Diet.findOrCreate({
     where: {name: e}
   }));
-  server.listen(PORT, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+  server.listen(3001, () => {
+    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
   });
 });
