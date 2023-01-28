@@ -35,7 +35,7 @@ let arr =
 
 
 // Syncing all the models at once.
-conn.sync({ alter: true }).then(() => {
+conn.sync({ force: true }).then(() => {
   arr.forEach(e => Diet.findOrCreate({
     where: {name: e}
   }));
