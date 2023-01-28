@@ -1,5 +1,7 @@
 //Importamos axios para consumir el back
 import axios from 'axios'
+//Importo el env
+const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL;
 //Exportamos las accion type
 export const GET_RECIPES = "GET_RECIPES" //Listo
 export const GET_RECIPE_NAME = "GET_RECIPE_NAME" //Listo
@@ -13,11 +15,13 @@ export const FILTER_DIETS = "FILTER_DIETS" //Listo
 export const DETAIL_PAGE = "DETAIL_PAGE" //Listo
 export const UPDATE_RECIPE = "UPDATE_RECIPE"
 
+
 //Creamos las funciones para cada type y las exportamos para posteriormente usarlas en react.
 export function getRecipes() {
+    console.log(REACT_APP_BASE_URL)
     return function (dispatch) {
         return axios
-            .get(`http://localhost:3001/recipes`)
+            .get(`${REACT_APP_BASE_URL}/recipes`)
             .then((response) => {
                 return dispatch({ type: GET_RECIPES, payload: response.data })
             })
@@ -31,7 +35,7 @@ export function getRecipeByName(name) {
     return async function (dispatch) {
         try {
             const axiosResponse = await axios
-                .get(`http://localhost:3001/recipes?name=${name}`)
+                .get(`${REACT_APP_BASE_URL}/recipes?name=${name}`)
             dispatch({ type: GET_RECIPE_NAME, payload: axiosResponse.data })
         } catch (error) {
             if (error.response) {
@@ -45,7 +49,7 @@ export function getRecipeDetail(id) {
     return async function (dispatch) {
         try {
             const response = await axios
-            .get(`http://localhost:3001/recipes/${id}`)
+            .get(`${REACT_APP_BASE_URL}/recipes/${id}`)
             dispatch({ type: GET_RECIPE_DETAIL, payload: response.data })
         } catch (error) {
             alert(error)
@@ -57,7 +61,7 @@ export function deteleRecipe(id) {
     return async function (dispatch) {
         try {
             const response = await axios
-                .delete(`http://localhost:3001/recipes/${id}`);
+                .delete(`${REACT_APP_BASE_URL}//recipes/${id}`);
             dispatch({ type: DELETE_RECIPE, payload: response.data })
         } catch (error) {
             alert(error)
@@ -69,7 +73,7 @@ export function updateRecipe(id){
     return async function (dispatch) { 
         try{
             const response = await axios
-            .put(`http://localhost:3001/recipes/${id}`)
+            .put(`${REACT_APP_BASE_URL}/recipes/${id}`)
             dispatch({type: UPDATE_RECIPE, payload: response.data})
         } catch(error){
             alert(error)
@@ -81,7 +85,7 @@ export function createRecipe(data) {
     return async function (dispatch) {
         try {
             const response = await axios
-                .post(`http://localhost:3001/recipes`, data)
+                .post(`${REACT_APP_BASE_URL}/recipes`, data)
             dispatch({ type: CREATE_RECIPE, payload: response.data })
         } catch (error) {
             alert(error)
@@ -92,7 +96,7 @@ export function createRecipe(data) {
 export function getDietsList() {
     return async function (dispatch) {
         try {
-            const response = await axios.get(`http://localhost:3001/diets`)
+            const response = await axios.get(`${REACT_APP_BASE_URL}/diets`)
             dispatch({ type: GET_LIST_DIETS, payload: response.data })
         } catch (error) {
             alert(error)
